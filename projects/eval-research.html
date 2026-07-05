@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>大模型评测体系研究 · 高一帆</title>
+  <meta name="description" content="大模型与视频生成评测方法论：四层骨架、GSB/Arena/LLM-as-Judge 方法地图、六大评测维度体系。" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../assets/portfolio.css" />
+</head>
+<body>
+  <nav id="topnav">
+    <div class="wrap">
+      <a class="nav-logo" href="../index.html#hero">gaoyifan<span class="caret">@portfolio:~$</span></a>
+      <button class="nav-toggle" aria-label="菜单">≡</button>
+      <div class="nav-links">
+        <a href="../index.html#about">关于</a>
+        <a href="../index.html#experience">经历</a>
+        <a href="../index.html#projects">项目</a>
+        <a href="../index.html#writing">写作</a>
+        <a href="../index.html#contact">联系</a>
+      </div>
+    </div>
+  </nav>
+  <header class="page-hero">
+    <div class="wrap">
+      <a class="backlink" href="../index.html#projects">← 返回作品集</a>
+      <div class="kicker">Research</div>
+      <h1>大模型评测体系研究</h1>
+      <p class="lead">把「模型生成得好不好」这个主观问题，拆成可设计、可统计、可归因的评测工程。</p>
+    </div>
+  </header>
+
+  <!-- ===== 1. Overview ===== -->
+  <section class="block reveal">
+    <div class="wrap">
+      <div class="kicker">Overview</div>
+      <h2>评测的本质：把「好不好」变成可复现的工程</h2>
+      <p class="lead" style="margin-bottom:32px">benchmark 的数量在爆炸，但打分的底层方法屈指可数。这套研究要做的，是把「看似无穷的评测」压成「有限的结构」——任何一个新 benchmark 出现，都能立刻归位。</p>
+      <div class="grid g2" style="margin-bottom:30px">
+        <div class="card">
+          <div class="chip">基模评测 · base</div>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:12px 0 0">评<b style="color:var(--txt)">裸模型权重</b>的通用能力（知识 / 推理 / 数学 / 代码 / 安全）。以离线 benchmark 为主，看绝对水平与相对排名。<br><span style="color:var(--txt-faint)">头号命门：数据污染 + Goodhart 效应。</span></p>
+        </div>
+        <div class="card">
+          <div class="chip blue">AI 产品评测 · product</div>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:12px 0 0">评「模型 + prompt + 检索 + workflow + UI」<b style="color:var(--txt)">端到端整体</b>对真实用户/业务的价值。以在线 A/B + 真人为主，看业务结果。<br><span style="color:var(--txt-faint)">头号命门：分布漂移 + 归因困难。</span></p>
+        </div>
+      </div>
+      <div class="quote">「大模型评测的<span style="color:var(--green)">类别在发散、方法在收敛</span>。」
+        <span class="src">— 系统研究文档 · 顶层洞察</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 2. 四层骨架 ===== -->
+  <section class="block reveal">
+    <div class="wrap">
+      <div class="kicker">Framework</div>
+      <h2>四层骨架 · 从「评什么」一路推到「什么条件下跑」</h2>
+      <div class="flow" style="margin:6px 0 30px">
+        <span class="node">类别 · 评什么</span><span class="arrow">→</span>
+        <span class="node">方法 · 怎么评</span><span class="arrow">→</span>
+        <span class="node alt">概念 · 靠不靠谱</span><span class="arrow">→</span>
+        <span class="node alt">工程 · 什么条件跑</span>
+      </div>
+      <div class="grid g2">
+        <div class="card">
+          <h3>① 类别层　<span style="color:var(--green-soft);font-family:var(--mono);font-size:13px">WHAT · 发散</span></h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:8px 0 0">评的是哪种本事：知识 / 推理 / 数学 / 代码 / 长文本 / 安全 / 多模态 / Agent。能力可无限细分，<b style="color:var(--txt)">这一层决定了 benchmark 的数量爆炸</b>。</p>
+        </div>
+        <div class="card">
+          <h3>② 方法层　<span style="color:var(--green-soft);font-family:var(--mono);font-size:13px">HOW · 收敛</span></h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:8px 0 0">底层只是「<b style="color:var(--txt)">谁来判（机器 / 模型 / 人）× 怎么判（相对 / 绝对）</b>」的二维组合，实践中沉淀成 5 种高频打分法。</p>
+        </div>
+        <div class="card">
+          <h3>③ 概念层　<span style="color:var(--blue);font-family:var(--mono);font-size:13px">WHY · 横切</span></h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:8px 0 0">判断「这次分数可信吗」的透镜：数据污染、Goodhart、held-out、位置/长度/自偏好 bias、可复现性。它<b style="color:var(--txt)">横切所有类别和方法</b>。</p>
+        </div>
+        <div class="card">
+          <h3>④ 工程层　<span style="color:var(--blue);font-family:var(--mono);font-size:13px">正交</span></h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:8px 0 0">在什么部署条件下把评测跑出来：多版本 / 多卡 / 量化剪枝 / 蒸馏加速，核心是量化「<b style="color:var(--txt)">加速比 ↔ 掉分</b>」的权衡。</p>
+        </div>
+      </div>
+      <p style="color:var(--txt-faint);font-size:13.5px;margin-top:22px;font-family:var(--mono)">三组交叉才是真正的理解杠杆：<span style="color:var(--txt-dim)">类别×方法（有没有标准答案定总开关）· 方法×概念（每种方法继承一种命门）· 类别×概念（题的处境决定污染风险）</span>。</p>
+    </div>
+  </section>
+
+  <!-- ===== 3. 方法论地图 ===== -->
+  <section class="block reveal">
+    <div class="wrap">
+      <div class="kicker">Methods</div>
+      <h2>方法地图 · 五种主流打分法的适用与取舍</h2>
+      <p class="lead" style="margin-bottom:26px">五种方法不是干净的正交分类，而是「谁来判 × 怎么判」二维空间里的几个高频落点。</p>
+      <pre class="code" style="margin-bottom:26px"><span class="c"># 谁来判（WHO） × 怎么判（HOW）</span>
+                <span class="k">机器</span>        <span class="k">模型</span>          <span class="k">人</span>
+  <span class="s">绝对打分</span>      M1 自动     M4 LLM-Judge   M5 真人 MOS
+  <span class="s">相对比较</span>       —        M4 LLM-Judge   M5 真人 GSB
+  <span class="c"># M2 对比法（GSB / SBS / Arena-Elo）横跨相对轴，把两两对比聚合成全局排名</span></pre>
+      <div class="tablewrap">
+        <table class="data">
+          <thead>
+            <tr><th>方法</th><th>谁判 × 怎么判</th><th>适用场景</th><th>取舍 / 命门</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b style="color:var(--txt)">M1 自动指标</b></td><td>机器 × 绝对</td><td>有标准答案的客观题：数学 / 代码 / 选择</td><td>必须有 groundtruth；测不了开放能力</td></tr>
+            <tr><td><b style="color:var(--txt)">GSB / A-B 盲评</b></td><td>人 × 相对</td><td>新版 vs 旧版上线决策</td><td>人做相对判断一致性更高；但只给相对、无绝对水位</td></tr>
+            <tr><td><b style="color:var(--txt)">Arena（Elo）</b></td><td>众包 × 相对聚合</td><td>模型横向排名、看真实体验</td><td>抗刷、贴体验；慢，受人群与 prompt 分布影响</td></tr>
+            <tr><td><b style="color:var(--txt)">LLM-as-Judge</b></td><td>模型 × 可绝对可相对</td><td>规模化自动评主观题</td><td>与人一致性 82–92%；有位置/长度/自偏好 bias，需对调、控长、换厂商</td></tr>
+            <tr><td><b style="color:var(--txt)">MOS 绝对打分</b></td><td>人 × 绝对</td><td>要绝对质量水位（合格线）</td><td>标尺要统一；档太多（1–10）评委吵不清，常用 3–5 档</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:var(--txt-faint);font-size:13.5px;margin-top:18px;font-family:var(--mono)">实战配合：<span style="color:var(--green-soft)">人工定标准 → 自动做规模化 → 人工抽审</span>。</p>
+      <div class="chips" style="margin-top:14px">
+        <span class="chip">GSB</span><span class="chip">SBS</span><span class="chip">Elo / Bradley-Terry</span><span class="chip">MOS / Likert</span><span class="chip">LLM-as-Judge</span><span class="chip blue">IAA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 4. 主观→可量化 ===== -->
+  <section class="block reveal">
+    <div class="wrap">
+      <div class="kicker">Method</div>
+      <h2>从主观鉴赏到可量化：让一群人打出一致的分</h2>
+      <p class="lead" style="margin-bottom:28px">主观评测最大的敌人不是「谁对」，而是「换个评委分数就变」。把主观拆成可量化，靠三步。</p>
+      <div class="grid g3" style="margin-bottom:30px">
+        <div class="card">
+          <h3>拆维度 rubric</h3>
+          <p style="color:var(--txt-dim);font-size:14px;margin:8px 0 0">把「好看」正交拆成独立维度<b style="color:var(--txt)">分项打分</b>，别揉成一个总分；每个维度写清「对/错/好/坏」的判据和 badcase 锚点。</p>
+        </div>
+        <div class="card">
+          <h3>控标尺</h3>
+          <p style="color:var(--txt-dim);font-size:14px;margin:8px 0 0">少档位（3–5 档）降分歧；相对判断（GSB）比绝对打分一致性更高；<b style="color:var(--txt)">左右对调</b>消掉位置偏好。</p>
+        </div>
+        <div class="card">
+          <h3>量一致性 IAA</h3>
+          <p style="color:var(--txt-dim);font-size:14px;margin:8px 0 0">用 Krippendorff α / Cohen κ 量评委间一致性（α ≥ 0.80）。关键认知：IAA 低<b style="color:var(--txt)">先怀疑 rubric 有歧义</b>，而不是标注员差。</p>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="m-num">78%<span class="arrow">→</span>91%</div><div class="m-lbl">评分口径一致率（rubric + 锚点对齐后）</div></div>
+        <div class="metric"><div class="m-num">65%<span class="arrow">→</span>82%</div><div class="m-lbl">AI 预筛准确率</div></div>
+        <div class="metric"><div class="m-num">8–11 轮</div><div class="m-lbl">支撑的模型迭代</div></div>
+      </div>
+      <div class="quote" style="margin-top:34px">「一致性低，先改评分标准，不是先怪标注员。」
+        <span class="src">— 评测方法论落地心得</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. 视频维度体系 ===== -->
+  <section class="block reveal" id="dimensions">
+    <div class="wrap">
+      <div class="kicker">Dimensions</div>
+      <h2>视频生成评测 · 六大一级维度体系</h2>
+      <p class="lead" style="margin-bottom:30px">把一段视频拆成六个正交的一级维度，每个维度都配「拆解口径」和「badcase 锚点」，让标注同学可复现地执行。</p>
+      <div class="grid g3">
+        <div class="card">
+          <div class="chip">01</div>
+          <h3>画面质量</h3>
+          <p style="color:var(--txt-dim);font-size:14px;margin:8px 0 10px"><b style="color:var(--green-soft)">拆解</b>　分辨率 / 细节保持、边缘伪影、色彩稳定、动态范围。</p>
+          <p style="color:var(--txt-faint);font-size:13px;margin:0"><b style="color:var(--amber)">badcase</b>　中远景五官糊成油画笔触；高对比边缘出现 JPEG 式彩色条纹。</p>
+        </div>
+        <div class="card">
+          <div class="chip">02</div>
+          <h3>动态稳定性</h3>
+          <p style="color:var(--txt-dim);font-size:14px;margin:8px 0 10px"><b style="color:var(--green-soft)">拆解</b>　运动轨迹连续、帧间稳定、视差一致、无跳帧。</p>
+          <p style="color:var(--txt-faint);font-size:13px;margin:0"><b style="color:var(--amber)">badcase</b>　跑步时躯干平移双腿原地「溜冰」；静态背景挂画每隔几帧「呼吸」抖动。</p>
+        </div>
+        <div class="card">
+          <div class="chip">03</div>
+          <h3>主体一致性</h3>
+          <p style="color:var(--txt-dim);font-size:14px;margin:8px 0 10px"><b style="color:var(--green-soft)">拆解</b>　跨镜外观 / 服装、颜色不漂移、数量守恒、ID 保持。</p>
+          <p style="color:var(--txt-faint);font-size:13px;margin:0"><b style="color:var(--amber)">badcase</b>　切镜后红裙变蓝 T；金毛越跑越变品种；两人对话中途冒出第三人。</p>
+        </div>
+        <div class="card">
+          <div class="chip">04</div>
+          <h3>指令遵循</h3>
+          <p style="color:var(--txt-dim);font-size:14px;margin:8px 0 10px"><b style="color:var(--green-soft)">拆解</b>　核心动作、镜头景别/速度、风格场景、文字渲染。</p>
+          <p style="color:var(--txt-faint);font-size:13px;margin:0"><b style="color:var(--amber)">badcase</b>　要求「猫踩琴键」实际走地板；文字「HELLO」渲染成「HLEOL」。</p>
+        </div>
+        <div class="card">
+          <div class="chip">05</div>
+          <h3>音画同步</h3>
+          <p style="color:var(--txt-dim);font-size:14px;margin:8px 0 10px"><b style="color:var(--green-soft)">拆解</b>　口型对齐、动作-音效卡点、声源-音色匹配、环境音对应。</p>
+          <p style="color:var(--txt-faint);font-size:13px;margin:0"><b style="color:var(--amber)">badcase</b>　口型比语音延迟约 0.5 秒；画面弹吉他却传出钢琴声。</p>
+        </div>
+        <div class="card">
+          <div class="chip">06</div>
+          <h3>整体观感</h3>
+          <p style="color:var(--txt-dim);font-size:14px;margin:8px 0 10px"><b style="color:var(--green-soft)">拆解</b>　审美 / 视听语言、情绪张力、完成度、综合可用性。</p>
+          <p style="color:var(--txt-faint);font-size:13px;margin:0"><b style="color:var(--amber)">badcase</b>　六个维度单看都及格，合起来却像 PPT 翻页——没有镜头调度与情绪。</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top:22px;border-color:rgba(94,179,255,0.28)">
+        <div class="chip blue">隐藏横切维度</div>
+        <p style="color:var(--txt-dim);font-size:14px;margin:10px 0 0"><b style="color:var(--txt)">物理合理性</b>（重力 / 接触 / 介质交互 / 镜面反射）与 <b style="color:var(--txt)">世界知识·隐含常识</b>（钟表指针方向、QWERTY 键盘、日历日期、红绿灯顺序、手指数量）——这些不写在 prompt 里，但结果必须符合，是拉开专业度的追问点。对应学术 benchmark：<span style="font-family:var(--mono);color:var(--green-soft)">VBench · PhyGenBench · VBench-2.0-Physics</span>。</p>
+      </div>
+      <div class="chips" style="margin-top:22px">
+        <span class="chip">画面质量</span><span class="chip">动态稳定性</span><span class="chip">主体一致性</span><span class="chip">指令遵循</span><span class="chip">音画同步</span><span class="chip">整体观感</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>© 2026 高一帆 · gaoyifan@portfolio</span>
+      <a href="../index.html#contact" style="color:var(--green)">← 联系我</a>
+    </div>
+  </footer>
+  <script src="../assets/portfolio.js"></script>
+</body>
+</html>

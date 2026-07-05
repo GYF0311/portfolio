@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>且曼 AI 训练师提效实战课 · 高一帆</title>
+  <meta name="description" content="且曼学院 AI 训练师提效实战课：接需求→写规则→Prompt→Workflow→复核回流，一套能教会别人的实战方法论。" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../assets/portfolio.css" />
+</head>
+<body>
+  <nav id="topnav">
+    <div class="wrap">
+      <a class="nav-logo" href="../index.html#hero">gaoyifan<span class="caret">@portfolio:~$</span></a>
+      <button class="nav-toggle" aria-label="菜单">≡</button>
+      <div class="nav-links">
+        <a href="../index.html#about">关于</a>
+        <a href="../index.html#experience">经历</a>
+        <a href="../index.html#projects">项目</a>
+        <a href="../index.html#writing">写作</a>
+        <a href="../index.html#contact">联系</a>
+      </div>
+    </div>
+  </nav>
+  <header class="page-hero">
+    <div class="wrap">
+      <a class="backlink" href="../index.html#projects">← 返回作品集</a>
+      <div class="kicker">Teaching</div>
+      <h1>且曼 AI 训练师提效实战课</h1>
+      <p class="lead">把一线评测与数据运营的经验，整理成学生能亲手跑通的实战方法。能做，也能教会别人。</p>
+      <div class="metrics">
+        <div class="metric"><div class="m-num">2 节</div><div class="m-lbl">PE / Workflow · AI Coding</div></div>
+        <div class="metric"><div class="m-num">5 步</div><div class="m-lbl">可交付主线</div></div>
+        <div class="metric"><div class="m-num">RECIPE</div><div class="m-lbl">6 要素 Prompt 框架</div></div>
+        <div class="metric"><div class="m-num">3 项</div><div class="m-lbl">换项目作业</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. 课程定位 -->
+  <section class="block reveal" id="positioning">
+    <div class="wrap">
+      <div class="kicker">Positioning</div>
+      <h2>这门课教什么</h2>
+      <p class="lead" style="margin-bottom:30px">
+        面向想真正落地的 AI 训练师 / 数据运营。不是讲某个平台的按钮，而是给一套可迁移的方法：
+        接到任何图片描述、标注、评测项目，先问人怎么做，再判断 AI 能不能做，
+        再把人的 SOP 翻译成 Prompt 和 Workflow，最后用验证结果证明它是否真的提效。
+      </p>
+      <div class="grid g3">
+        <div class="card">
+          <div class="kicker" style="margin-bottom:12px">教什么</div>
+          <p style="color:var(--txt-dim);margin:0">
+            把人工标注规则翻译成模型可执行的 Prompt，串成能批量产初稿的 Workflow，
+            再用 AI Coding、Skill、API 批处理把链路做稳、做快。
+          </p>
+        </div>
+        <div class="card">
+          <div class="kicker" style="margin-bottom:12px">给谁教</div>
+          <p style="color:var(--txt-dim);margin:0">
+            不需要会写代码。目标是会用、会调、会验收——报错不是失败，是下一步要问 AI 的材料。
+          </p>
+        </div>
+        <div class="card">
+          <div class="kicker" style="margin-bottom:12px">学完能落地</div>
+          <p style="color:var(--txt-dim);margin:0">
+            一包图片能自动跑成 JSON / Excel / 标注平台预填数据，人工只做复核；
+            成果还能沉淀成作品页，面试用。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 课程主线骨架 -->
+  <section class="block reveal" id="mainline">
+    <div class="wrap">
+      <div class="kicker">Main Line</div>
+      <h2>课程主线骨架</h2>
+      <p class="lead" style="margin-bottom:26px">
+        整门课贯穿一条可交付主线。学生要记住的不是某个节点，而是这条线本身。
+      </p>
+      <div class="flow" style="margin-bottom:34px">
+        <span class="node">接需求</span>
+        <span class="arrow">→</span>
+        <span class="node alt">写规则</span>
+        <span class="arrow">→</span>
+        <span class="node">Prompt</span>
+        <span class="arrow">→</span>
+        <span class="node alt">Workflow</span>
+        <span class="arrow">→</span>
+        <span class="node">复核回流</span>
+      </div>
+      <div class="grid g3">
+        <div class="card">
+          <div class="proj-num">01 · 接需求</div>
+          <h3>先问人怎么标</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            谁用这批数据、终局长什么样、现在人怎么标、规则文档在哪、有没有已标样本、
+            人工效率基线、哪些错误不能接受。问清楚再动手。
+          </p>
+        </div>
+        <div class="card">
+          <div class="proj-num">02 · 写规则</div>
+          <h3>把 SOP 翻译成规则文档</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            画面形式、主体类型、动作状态、构图、光影、色彩、风格逐字段定标签与范围；
+            哪些固定、哪些开放；不确定就输出 <code style="color:var(--green)">unknown</code> 的边界兜底。
+          </p>
+        </div>
+        <div class="card">
+          <div class="proj-num">03 · Prompt</div>
+          <h3>写生产级 Prompt 并迭代</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            用 RECIPE 框架把规则写成模型能执行的说明书，拿 3–10 张图试跑；
+            反复优化仍出错的字段，记为模型边界，交人工重点复核。
+          </p>
+        </div>
+        <div class="card">
+          <div class="proj-num">04 · Workflow</div>
+          <h3>把 Prompt 串成流水线</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            单个 Prompt 只描述一张图；Workflow 解决一批图的审核、分类、分场景描述、
+            结构化输出。低代码（Coze）和 AI Coding 脚本是同一逻辑的两种实现。
+          </p>
+        </div>
+        <div class="card">
+          <div class="proj-num">05 · 复核回流</div>
+          <h3>人工复核，问题回流</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            AI 出初稿、人工复核修改；审核误判、字段不稳、覆盖不全等问题回流到
+            规则、Prompt、few-shot 和节点，用人工修改时间下降证明真提效。
+          </p>
+        </div>
+        <div class="card" style="border-color:rgba(94,179,255,0.28)">
+          <div class="proj-num" style="color:var(--blue)">终局图</div>
+          <h3>一包图片 → 可交付数据</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            图片审核 → 类型分类器 → 风景 / 商品 / 人物 / 动物 / 通用专项 Prompt →
+            JSON 结果 → 人工复核入表。先讲终局，再拆过程。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 教学方法论 -->
+  <section class="block reveal" id="method">
+    <div class="wrap">
+      <div class="kicker">Methodology</div>
+      <h2>怎么教（且曼体系）</h2>
+      <p class="lead" style="margin-bottom:26px">
+        方法论决定这门课不是知识点罗列，而是学生真能上手的东西。
+      </p>
+      <div class="grid g2">
+        <div class="card">
+          <span class="chip">01</span>
+          <h3 style="margin:12px 0 8px">Why 讲透，但只当引子</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            开场先把「重要、酷、专业」立起来镇住学生，点燃好奇后利落切正题——
+            不是要占多大比例，讲太长反而适得其反。
+          </p>
+        </div>
+        <div class="card">
+          <span class="chip">02</span>
+          <h3 style="margin:12px 0 8px">抓大放小，不当搬运工</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            吸收 → 消化 → 吐出。只讲自己真懂、能落地的点，其余砍掉，
+            绝不把素材原样复述一遍。
+          </p>
+        </div>
+        <div class="card">
+          <span class="chip">03</span>
+          <h3 style="margin:12px 0 8px">学十教一，教一备十</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            每个点先用学生视角列十个刁难问题自测，自己答不上就不讲。
+          </p>
+        </div>
+        <div class="card">
+          <span class="chip">04</span>
+          <h3 style="margin:12px 0 8px">老师做结构</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            把散素材拆成清晰三段再塞知识；专业名词先解释再用；
+            适时 call back 前面讲过的概念。
+          </p>
+        </div>
+        <div class="card" style="grid-column:1 / -1">
+          <span class="chip amber">05</span>
+          <h3 style="margin:12px 0 8px">实操课：先甩结果，再拆原理</h3>
+          <p style="color:var(--txt-dim);margin:0">
+            先甩出炸裂的成品结果 → 锚定目标并全程回扣 → 带练复现 → 最后才讲原理。
+            课前一定预跑出可直接复用的稳定版本，1v1 / 远程也要让学生亲手跑通最小闭环，
+            不让课堂变成全程旁观或现场 debug。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 课程模块概览 -->
+  <section class="block reveal" id="modules">
+    <div class="wrap">
+      <div class="kicker">Modules</div>
+      <h2>两节课的模块概览</h2>
+      <p class="lead" style="margin-bottom:26px">
+        课上用「图片描述」一条线讲到底；作业换成 ASR 语音评测，逼学生迁移而不是复刻。
+      </p>
+      <div class="chips" style="margin-bottom:22px">
+        <span class="chip">RECIPE</span>
+        <span class="chip">Workflow 分流</span>
+        <span class="chip blue">AI Coding</span>
+        <span class="chip blue">web coding</span>
+        <span class="chip amber">Skill 能力包</span>
+        <span class="chip amber">config 调 PE</span>
+        <span class="chip">API 批处理</span>
+        <span class="chip">个人网站</span>
+      </div>
+      <div class="tablewrap">
+        <table class="data">
+          <thead>
+            <tr><th>节次</th><th>模块</th><th>核心主题</th><th>学生产出</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>第七节</td>
+              <td>Prompt 工程</td>
+              <td>Prompt = 给模型的规则说明书；用 RECIPE 六要素写生产级 Prompt</td>
+              <td>一份能稳定输出的图片描述 Prompt</td>
+            </tr>
+            <tr>
+              <td>第七节</td>
+              <td>规则翻译</td>
+              <td>把人工标注 SOP 转成字段、标签范围与边界兜底</td>
+              <td>可执行的规则文档</td>
+            </tr>
+            <tr>
+              <td>第七节</td>
+              <td>Workflow</td>
+              <td>审核 → 分类 → 分场景专项 Prompt → JSON → 复核的自动化链路</td>
+              <td>跑通的图片描述 Workflow</td>
+            </tr>
+            <tr>
+              <td>第八节</td>
+              <td>AI Coding</td>
+              <td>Python 批处理脚本 + Codex 生成复核网页；config 调 PE = Workflow 分流</td>
+              <td>脚本导出 CSV + 前端复核页</td>
+            </tr>
+            <tr>
+              <td>第八节</td>
+              <td>Skill</td>
+              <td>Skill ≠ 更长的 Prompt，是规则 + 模板 + 脚本 + 示例 + 边界的能力包</td>
+              <td>拆解一个开源 / 工作 Skill</td>
+            </tr>
+            <tr>
+              <td>第八节</td>
+              <td>个人网站</td>
+              <td>把成果做成作品页，过 HR / 业务初筛，拿到面试机会</td>
+              <td>可分享的个人作品站</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="grid g3" style="margin-top:24px">
+        <div class="card">
+          <div class="kicker" style="margin-bottom:12px">概念阶梯</div>
+          <pre class="code"><span class="c"># 一层套一层</span>
+<span class="k">Prompt</span>   这一次怎么做
+<span class="k">Workflow</span> 多步骤怎么串
+<span class="k">Skill</span>    同类任务以后都这么做</pre>
+        </div>
+        <div class="card">
+          <div class="kicker" style="margin-bottom:12px">RECIPE 六要素</div>
+          <p style="color:var(--txt-dim);margin:0">
+            角色 · 目标 · 输入 · 规则 · 输出 · 边界。边界不是和规则打架，
+            是规则里的「不要做什么」——不猜身份、不编作品名、不确定就 unknown。
+          </p>
+        </div>
+        <div class="card">
+          <div class="kicker" style="margin-bottom:12px">一样的事做两遍</div>
+          <p style="color:var(--txt-dim);margin:0">
+            同一个项目先用 web coding 脚本做一遍，再在扣子平台搭一遍，
+            让学生看到两种实现、同一套逻辑。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. quote -->
+  <section class="block reveal" id="quote">
+    <div class="wrap">
+      <blockquote class="quote">
+        真正的门槛不是学会某个平台的按钮，而是能把人的 SOP 拆成 Prompt 和 Workflow——
+        我把这条线走通了，也把它讲成了学生能亲手跑通的课。
+        <span class="src">— 高一帆 · 且曼学院 AI 训练师提效实战课</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>© 2026 高一帆 · gaoyifan@portfolio</span>
+      <a href="../index.html#contact" style="color:var(--green)">← 联系我</a>
+    </div>
+  </footer>
+  <script src="../assets/portfolio.js"></script>
+</body>
+</html>

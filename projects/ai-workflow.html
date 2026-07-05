@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>我的 AI 工作系统 · 高一帆</title>
+  <meta name="description" content="AI-native 工作方式：corpus×lorekit 个人知识库 + Claude×Codex 双 Agent 协作 + AI 提效小工具集。" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="stylesheet" href="../assets/portfolio.css" />
+</head>
+<body>
+  <nav id="topnav">
+    <div class="wrap">
+      <a class="nav-logo" href="../index.html#hero">gaoyifan<span class="caret">@portfolio:~$</span></a>
+      <button class="nav-toggle" aria-label="菜单">≡</button>
+      <div class="nav-links">
+        <a href="../index.html#about">关于</a>
+        <a href="../index.html#experience">经历</a>
+        <a href="../index.html#projects">项目</a>
+        <a href="../index.html#writing">写作</a>
+        <a href="../index.html#contact">联系</a>
+      </div>
+    </div>
+  </nav>
+  <header class="page-hero">
+    <div class="wrap">
+      <a class="backlink" href="../index.html#projects">← 返回作品集</a>
+      <div class="kicker">AI Workflow</div>
+      <h1>我的 AI 工作系统</h1>
+      <p class="lead">一套把 AI 融进日常工作的系统：个人知识库沉淀经验，双 Agent 分工协作，小工具把重复活自动化。</p>
+    </div>
+  </header>
+
+  <!-- ================= 系统总览 ================= -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker reveal">Overview</div>
+      <h2 class="reveal">三件套：知识库 + 双 Agent + 小工具</h2>
+      <p class="lead reveal">我不是「偶尔用一下 AI」，而是把它做成了一条常驻的工作流水线。原始资料被增量编译成可检索的长期知识库；两个 AI Agent 分主控与第二工程师协作干活；一批小工具把爬取、抽帧、批处理这类重复劳动交给脚本。三层各司其职，又互相反哺。</p>
+
+      <div class="flow reveal" style="margin:26px 0 30px">
+        <span class="node">原始资料</span>
+        <span class="arrow">→</span>
+        <span class="node">lorekit ingest</span>
+        <span class="arrow">→</span>
+        <span class="node">知识库 wiki</span>
+        <span class="arrow">→</span>
+        <span class="node alt">query / 反哺工作</span>
+        <span class="arrow">↺</span>
+        <span class="node alt">fileback 结论</span>
+      </div>
+
+      <div class="grid g3 reveal" style="align-items:start">
+        <div class="card">
+          <span class="chip">01 · 知识库</span>
+          <h3>corpus × lorekit</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">把散落的资料、录音、复盘增量编译成一座长期维护的 wiki，随时可检索、可回读、可引用。</p>
+        </div>
+        <div class="card">
+          <span class="chip blue">02 · 双 Agent</span>
+          <h3>Claude × Codex</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">主控负责规划与终审，第二工程师负责执行；通过委托链路分工，共享同一套记忆。</p>
+        </div>
+        <div class="card">
+          <span class="chip amber">03 · 小工具</span>
+          <h3>提效脚本集</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">爬虫、音视频分离抽帧、画面自动描述、批处理、训练师 Workflow 链路——重复活自动化。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= corpus × lorekit 知识库 ================= -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker reveal">Knowledge Base</div>
+      <h2 class="reveal">corpus × lorekit：把资料编译成长期 wiki</h2>
+      <p class="lead reveal">核心思路是「增量编译」：资料不是堆进文件夹就完事，而是像代码一样被 ingest、建立反链、定期 lint 校验，逐步长成一座结构化、可检索的个人 wiki。原始资料只读、不改；分析和结论走独立的写回通道，事实源始终唯一。</p>
+
+      <div class="flow reveal" style="margin:26px 0 28px">
+        <span class="node">ingest 摄入</span>
+        <span class="arrow">→</span>
+        <span class="node">建反链 / 索引</span>
+        <span class="arrow">→</span>
+        <span class="node">query 检索</span>
+        <span class="arrow">→</span>
+        <span class="node alt">fileback 写回</span>
+        <span class="arrow">→</span>
+        <span class="node">lint 体检</span>
+      </div>
+
+      <div class="grid g2 reveal" style="align-items:start;margin-bottom:24px">
+        <div class="card">
+          <h3 style="color:var(--green)">ingest · 摄入</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">URL、文件、粘贴文本统一走摄入入口：抓取正文、归档来源、生成 wiki 页并挂上反链，原始资料落入只读区。</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--green)">query · 检索</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">先读目录索引再命中 canonical 页面，最终答案回读知识库正文，派生草稿不当事实源——保证引用可靠。</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--green)">fileback · 写回</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">对话里得到的结论，经确认后走受控通道写回知识库，而不是手改 canonical 页；源优先，避免双事实源。</p>
+        </div>
+        <div class="card">
+          <h3 style="color:var(--green)">lint · 体检</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">定期检查断链、孤岛节点、frontmatter 规范，保证 wiki 结构长期健康；只查结构，事实层靠人工 review 兜底。</p>
+        </div>
+      </div>
+
+      <pre class="code reveal"><span class="c"># 一条命令摄入，一条命令检索——像管代码一样管知识</span>
+<span class="k">lorekit</span> ingest <span class="s">"&lt;url | file | text&gt;"</span>   <span class="c"># 抓取→归档→建页→反链</span>
+<span class="k">lorekit</span> query  <span class="s">"视频生成评测维度"</span>       <span class="c"># 先索引后正文，回读 canonical</span>
+<span class="k">lorekit</span> lint                          <span class="c"># 断链 / 孤岛 / frontmatter 体检</span></pre>
+    </div>
+  </section>
+
+  <!-- ================= Claude × Codex 双 Agent 协作 ================= -->
+  <section class="block">
+    <div class="wrap">
+      <div class="kicker reveal">Dual-Agent</div>
+      <h2 class="reveal">Claude × Codex：主控 + 第二工程师</h2>
+      <p class="lead reveal">我把两个 AI 当成一个小团队：Claude Code 是主控，负责澄清需求、拆解任务、路由和终审；Codex 是独立的第二工程师，负责执行——爬取、清洗、批量转换、课件制作都交给它。主控通过一条委托链路把任务派出去，两边共享同一套记忆，同一个问题不用讲第二遍。</p>
+
+      <div class="grid g2 reveal" style="align-items:start;margin:24px 0 28px">
+        <div class="card">
+          <span class="chip">主控</span>
+          <h3>Claude Code</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0 0 12px">和我对话的唯一入口。负责把模糊需求问清、拆成可执行的任务包、决定谁来做、最后审收成果。规划与判断留在主控手里。</p>
+          <div class="chips">
+            <span class="chip">澄清拆解</span>
+            <span class="chip">任务路由</span>
+            <span class="chip">交叉 review</span>
+          </div>
+        </div>
+        <div class="card">
+          <span class="chip blue">第二工程师</span>
+          <h3>Codex</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0 0 12px">独立长线程 Agent，接主控派来的任务包和边界，执行后交回结构化回执。可按需并发多个子 Agent 处理独立同构的子任务。</p>
+          <div class="chips">
+            <span class="chip blue">批量执行</span>
+            <span class="chip blue">多 Agent 并发</span>
+            <span class="chip blue">结构化回执</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tablewrap reveal" style="margin-bottom:26px">
+        <table class="data">
+          <thead>
+            <tr><th>环节</th><th>主控 Claude</th><th>第二工程师 Codex</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>需求澄清</td><td>和我对话，问清目标与边界</td><td>—</td></tr>
+            <tr><td>任务拆解</td><td>拆成带边界的任务包</td><td>—</td></tr>
+            <tr><td>执行</td><td>轻量琐碎自己做</td><td>爬取 / 清洗 / 批量转换 / 课件</td></tr>
+            <tr><td>并发</td><td>调度并行子 Agent</td><td>可 fan-out 多个子 Agent</td></tr>
+            <tr><td>质量</td><td>审对方成果（不自审自过）</td><td>自查后交回执，供主控复核</td></tr>
+            <tr><td>记忆</td><td colspan="2" style="color:var(--green-soft)">共享同一套持久记忆：习惯、路径、流程、踩过的坑、决策，两边自动加载</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="lead reveal" style="margin-bottom:18px">记忆分三层，只共享该共享的：稳定的协作规矩两边同内容加载；持久事实沉淀成共享记忆库、Agent 自治维护、我不参与；各自的私有召回则互不干扰。任务能拆就默认并发——两边的轻量子 Agent 等价并发，成本靠执行档位控制。</p>
+
+      <pre class="code reveal"><span class="c"># 主控把任务派给第二工程师，带上工作目录与边界</span>
+<span class="k">dispatch</span> --cwd <span class="s">&lt;项目根&gt;</span> --effort <span class="s">high</span> <span class="s">"&lt;任务包 + 交付边界&gt;"</span>
+  <span class="c">→ Codex 长线程执行，自查后交回 STATUS / ARTIFACTS / NEXT 回执</span>
+  <span class="c">→ 主控 review 通过 → 我验收</span></pre>
+    </div>
+  </section>
+
+  <!-- ================= AI 提效小工具集 ================= -->
+  <section class="block" id="tools">
+    <div class="wrap">
+      <div class="kicker reveal">Tools</div>
+      <h2 class="reveal">AI 提效小工具集</h2>
+      <p class="lead reveal">系统之外，我攒了一批把重复劳动自动化的小工具。它们不追求通用，只解决我手头真实反复出现的活儿——从素材采集，到多模态内容处理，再到训练师课程的全链路提效。会用 AI 做项目提效，落到实处就是这些脚本。</p>
+
+      <div class="grid g3 reveal" style="align-items:start;margin-top:24px">
+        <div class="card">
+          <span class="chip">采集</span>
+          <h3>爬虫脚本</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">按需抓取公开网页与图文素材，正文、图片一并落地，喂给下游知识库或分析流程。</p>
+        </div>
+        <div class="card">
+          <span class="chip amber">多模态</span>
+          <h3>音视频分离 / 抽帧</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">把视频拆成音轨与关键帧，为转写、评测、标注等下游任务准备干净的输入素材。</p>
+        </div>
+        <div class="card">
+          <span class="chip amber">多模态</span>
+          <h3>抽帧画面自动描述</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">抽出的画面交给多模态模型批量生成结构化描述，把「看图」这一步也自动化。</p>
+        </div>
+        <div class="card">
+          <span class="chip">批处理</span>
+          <h3>批量转换脚本</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">格式转换、重命名、逐字稿归档、命名规范化等重复动作打包成批处理，一次跑完一批。</p>
+        </div>
+        <div class="card">
+          <span class="chip blue">链路</span>
+          <h3>训练师 Workflow 链路</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">接需求 → 写规则 → Prompt → Workflow → 复核回流，把 AI 训练师的提效流程串成可复用链路。</p>
+        </div>
+        <div class="card">
+          <span class="chip blue">链路</span>
+          <h3>录音 → 讲义链路</h3>
+          <p style="color:var(--txt-dim);font-size:14.5px;margin:0">录音拉逐字稿、保留说话人与时间戳、整理成结构化讲义，课程与复盘素材一条龙。</p>
+        </div>
+      </div>
+
+      <pre class="code reveal" style="margin-top:26px"><span class="c"># 典型链路：一段视频 → 关键帧 → 自动描述 → 结构化产物</span>
+<span class="k">ffmpeg</span> -i input.mp4 -vf <span class="s">"fps=1"</span> frames/%04d.jpg   <span class="c"># 抽帧</span>
+<span class="k">describe</span> frames/ --model <span class="s">multimodal</span> &gt; captions.jsonl  <span class="c"># 画面自动描述</span>
+<span class="k">batch</span> captions.jsonl --into <span class="s">知识库</span>              <span class="c"># 批处理入库</span></pre>
+    </div>
+  </section>
+
+  <!-- ================= Quote ================= -->
+  <section class="block">
+    <div class="wrap">
+      <blockquote class="quote reveal">
+        AI 对我不是一个「问答框」，而是一套常驻的工作系统——知识在里面沉淀，任务在里面分工，重复劳动在里面自动化。
+        <span class="src">— AI-native 的工作方式</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <footer class="site">
+    <div class="wrap">
+      <span>© 2026 高一帆 · gaoyifan@portfolio</span>
+      <a href="../index.html#contact" style="color:var(--green)">← 联系我</a>
+    </div>
+  </footer>
+  <script src="../assets/portfolio.js"></script>
+</body>
+</html>
