@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>高一帆 · AI 数据运营 / 多模态模型评测</title>
+  <meta name="description" content="高一帆 — 3 年 AI 数据运营与多模态模型评测经验，腾讯混元、美团 LongCat，把主观视觉质量判断变成可执行、可复核的评测体系。" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Open Graph / 微信分享卡片 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="高一帆 · AI 数据运营 / 多模态模型评测" />
+  <meta property="og:description" content="把主观判断变成可执行的评测体系。腾讯混元 → 美团 LongCat，多模态评测 × AI 提效。" />
+  <meta name="twitter:card" content="summary" />
+
+  <link rel="stylesheet" href="assets/portfolio.css" />
+</head>
+<body>
+
+  <!-- ================= 顶部导航 ================= -->
+  <nav id="topnav">
+    <div class="wrap">
+      <a class="nav-logo" href="#hero">gaoyifan<span class="caret">@portfolio:~$</span></a>
+      <button class="nav-toggle" aria-label="菜单">≡</button>
+      <div class="nav-links">
+        <a href="#about">关于</a>
+        <a href="#experience">经历</a>
+        <a href="#projects">项目</a>
+        <a href="#writing">写作</a>
+        <a href="#contact">联系</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ================= Hero ================= -->
+  <header id="hero">
+    <div class="wrap">
+      <div class="hero-term">
+        <span class="prompt">gaoyifan@portfolio:~$</span>
+        <span class="typed" data-typed='["whoami --role","cat 定位.txt","./run 评测体系.sh"]'></span><span class="cursor"></span>
+      </div>
+      <h1>高一帆<br><span class="hl">把主观判断，变成可执行的评测体系。</span></h1>
+      <p class="hero-sub">AI 数据运营 × 多模态模型评测</p>
+      <p class="lead">3 年 AI 数据运营经验，先后在腾讯混元、美团 LongCat 做多模态数据生产与视频生成模型评测。擅长把「好不好看」这类主观判断，拆成可量化、可复核、能反哺算法迭代的评测标准，并用 AI 工具把重复流程自动化。</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">3 年</div><div class="lbl">AI 数据运营经验</div></div>
+        <div class="hero-stat"><div class="num">80 万+</div><div class="lbl">累计交付高质量数据</div></div>
+        <div class="hero-stat"><div class="num">78→91%</div><div class="lbl">评测口径一致率</div></div>
+        <div class="hero-stat"><div class="num">8–11 轮</div><div class="lbl">支撑模型版本迭代</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= About ================= -->
+  <section class="block" id="about">
+    <div class="wrap">
+      <div class="kicker reveal">About</div>
+      <h2 class="reveal">我是做什么的</h2>
+      <div class="grid g2" style="align-items:start">
+        <div class="reveal">
+          <p class="lead">我在做的事，本质是把「模型生成得好不好」这个主观问题，变成团队能统一执行、能拿数字说话的工程。</p>
+          <p class="lead" style="margin-top:16px">在美团 LongCat 视频组，我负责视频生成模型的评测组织与质量控制：拆评测维度、定 GSB 盲评规则、带标注团队校准尺度、收集 badcase 归因反哺算法。在这之前的腾讯混元，我做人像美学与 VQA 数据生产，管过 40 人标注团队。</p>
+          <p class="lead" style="margin-top:16px">我自己也上一线标注——视觉和美学主观性强，只有看够多的数据，才知道规则到底可不可执行。同时我习惯用 AI coding 工具把爬取、抽帧、自动化描述这些重复活做成小工具。</p>
+        </div>
+        <div class="card reveal">
+          <div class="kicker" style="margin-bottom:14px">Focus</div>
+          <div class="chips">
+            <span class="chip">多模态模型评测</span>
+            <span class="chip">GSB / A-B 盲评</span>
+            <span class="chip">评测维度体系</span>
+            <span class="chip">数据质量控制</span>
+            <span class="chip blue">标注团队管理</span>
+            <span class="chip blue">Badcase 归因</span>
+            <span class="chip amber">AI 提效 / 自动化</span>
+            <span class="chip amber">Prompt Engineering</span>
+          </div>
+          <pre class="code" style="margin-top:18px"><span class="c"># 一句话定位</span>
+<span class="k">role</span> = <span class="s">"AI 数据运营 / 多模态评测"</span>
+<span class="k">edge</span> = <span class="s">"懂一线标注 + 会搭评测体系 + 用 AI 提效"</span>
+<span class="k">fit</span>  = <span class="s">"把主观视觉质量结构化、标准化"</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Experience ================= -->
+  <section class="block" id="experience">
+    <div class="wrap">
+      <div class="kicker reveal">Experience</div>
+      <h2 class="reveal">工作经历</h2>
+      <div class="timeline">
+
+        <div class="tl-item reveal">
+          <div class="tl-head">
+            <span class="tl-time">2025.9 — 至今</span>
+            <h3>美团 · LongCat 视频生成模型评测</h3>
+            <span class="tl-role">视频生成模型评测 / 多模态数据运营</span>
+          </div>
+          <p class="lead">深度参与 LongCat-Video 版本迭代与外部主流模型横向对比评测，把主观视频效果转化为可统计、可复核、可指导训练迭代的结构化结论。搭建覆盖画面质量、动态稳定性、主体一致性、指令遵循、音画同步 6 大维度的评测体系，并推动 AI 自动化质检从抽帧迭代到完整视频理解模型。</p>
+          <div class="metrics">
+            <div class="metric"><div class="m-num">78<span class="arrow">→</span>91%</div><div class="m-lbl">多评测员口径一致率</div></div>
+            <div class="metric"><div class="m-num">65<span class="arrow">→</span>82%</div><div class="m-lbl">AI 预筛准确率</div></div>
+            <div class="metric"><div class="m-num">8–11 轮</div><div class="m-lbl">支撑模型版本迭代</div></div>
+            <div class="metric"><div class="m-num">200+</div><div class="m-lbl">沉淀典型 Badcase</div></div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-head">
+            <span class="tl-time">2024.3 — 2025.8</span>
+            <h3>腾讯 · 混元大模型多模态数据</h3>
+            <span class="tl-role">数据项目运营</span>
+          </div>
+          <p class="lead">围绕人像高质量 SFT 与 VQA 视觉强化两条方向，负责规则设计、40 人标注团队管理与模型验证。主导解耦式八维度美学评分体系，引入「双人盲标 + 公式化争议判定」降低审美主观性；VQA 侧搭建脚本化数据反写流水线与分批动态抽检流程。</p>
+          <div class="metrics">
+            <div class="metric"><div class="m-num">40 人</div><div class="m-lbl">标注团队管理</div></div>
+            <div class="metric"><div class="m-num">10 万+</div><div class="m-lbl">人像 SFT 数据</div></div>
+            <div class="metric"><div class="m-num">14 万</div><div class="m-lbl">VQA 清洗交付（可用率 96%）</div></div>
+            <div class="metric"><div class="m-num">95%+</div><div class="m-lbl">数据准确率</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Projects ================= -->
+  <section class="block" id="projects">
+    <div class="wrap">
+      <div class="kicker reveal">Projects</div>
+      <h2 class="reveal">精选项目</h2>
+      <p class="lead reveal" style="margin-bottom:34px">按说服力排序：从可点开跑的 Demo，到评测方法论、教学与我自己的 AI 工作系统。</p>
+
+      <div class="grid g3">
+
+        <a class="card proj-card hoverable reveal" href="projects/annotation-demo/index.html">
+          <div class="proj-num">01</div>
+          <h3>标注平台 Demo</h3>
+          <p>仿 CVAT 的多模板标注平台，10 个场景走通「原始数据 → 标注 → 结果」链路，直连美团评测经历。可点开交互。</p>
+          <div class="proj-foot"><span class="badge live">▶ 可交互 Demo</span><span>打开 →</span></div>
+        </a>
+
+        <a class="card proj-card hoverable reveal" href="projects/eval-research.html">
+          <div class="proj-num">02</div>
+          <h3>大模型评测体系研究</h3>
+          <p>四层骨架 + GSB / Arena / LLM-as-Judge 方法论地图，把评测「怎么设计、怎么统计、怎么归因」讲清楚。</p>
+          <div class="proj-foot"><span class="badge">展示页</span><span>阅读 →</span></div>
+        </a>
+
+        <a class="card proj-card hoverable reveal" href="projects/teaching.html">
+          <div class="proj-num">03</div>
+          <h3>且曼 AI 训练师提效实战课</h3>
+          <p>接需求 → 写规则 → Prompt → Workflow → 复核回流的完整课程骨架，体现「不仅会做，还能教会别人」。</p>
+          <div class="proj-foot"><span class="badge">展示页</span><span>阅读 →</span></div>
+        </a>
+
+        <a class="card proj-card hoverable reveal" href="projects/ai-workflow.html">
+          <div class="proj-num">04</div>
+          <h3>我的 AI 工作系统</h3>
+          <p>corpus × lorekit 个人知识库 + Claude × Codex 双 Agent 协作，一套 AI-native 的工作方式。</p>
+          <div class="proj-foot"><span class="badge">展示页</span><span>阅读 →</span></div>
+        </a>
+
+        <a class="card proj-card hoverable reveal" href="projects/eval-research.html#dimensions">
+          <div class="proj-num">05</div>
+          <h3>视频生成评测维度体系</h3>
+          <p>六大一级维度拆解——画面质量、动态稳定性、主体一致性、指令遵循、音画同步、整体观感，多模态方向的专业展示。</p>
+          <div class="proj-foot"><span class="badge">维度地图</span><span>查看 →</span></div>
+        </a>
+
+        <a class="card proj-card hoverable reveal" href="projects/ai-workflow.html#tools">
+          <div class="proj-num">06</div>
+          <h3>AI 提效小工具集</h3>
+          <p>爬虫脚本、音视频分离 / 抽帧、自动化描述插件、训练师 Workflow 链路——呼应「会用 AI 提效」。</p>
+          <div class="proj-foot"><span class="badge">工具集</span><span>查看 →</span></div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Writing ================= -->
+  <section class="block" id="writing">
+    <div class="wrap">
+      <div class="kicker reveal">Writing</div>
+      <h2 class="reveal">写作与方法论</h2>
+      <div class="grid g2" style="align-items:start">
+        <div class="card reveal">
+          <span class="chip amber">代表作</span>
+          <h3 style="margin-top:12px">《我花一个晚上，搞懂了 Harness》</h3>
+          <p class="lead" style="font-size:15px">从「大模型只是引擎，Harness 才是让它真正干活的底盘」出发，把 Agent 系统里工具调用、上下文管理、循环控制这套工程骨架讲透。技术写作既是自己消化的方式，也是「能教会别人」的证据。</p>
+          <div class="chips" style="margin-top:14px">
+            <span class="chip">Agent / Harness</span>
+            <span class="chip">技术写作</span>
+            <span class="chip blue">吸收→消化→吐出</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <span class="chip">持续输出</span>
+          <h3 style="margin-top:12px">公众号 · 人人都是产品经理</h3>
+          <p class="lead" style="font-size:15px">围绕 AI 数据运营、多模态评测、AI 提效工作流做长期内容沉淀。把一线经验整理成可复用的方法，是我理解一件事是否真懂的标准。</p>
+          <p class="lead" style="font-size:14px;color:var(--txt-faint);margin-top:14px;font-family:var(--mono)">// 更多文章持续增补</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Contact ================= -->
+  <section class="block" id="contact">
+    <div class="wrap">
+      <div class="kicker reveal">Contact</div>
+      <h2 class="reveal">聊聊？</h2>
+      <p class="lead reveal">如果你在找一个既懂一线标注、又能搭评测体系、还会用 AI 提效的多模态评测 / 数据运营的人，欢迎联系。</p>
+      <div class="contact-row reveal">
+        <a class="contact-btn primary" href="mailto:308856885@qq.com"><span class="ico">✉</span> 308856885@qq.com</a>
+        <a class="contact-btn" href="https://github.com/GYF0311" target="_blank" rel="noopener"><span class="ico">⌥</span> github.com/GYF0311</a>
+        <a class="contact-btn" href="assets/高一帆-AI数据运营简历.pdf" target="_blank" rel="noopener"><span class="ico">↓</span> 下载简历 PDF</a>
+      </div>
+      <p class="lead" style="font-size:13px;color:var(--txt-faint);margin-top:16px;font-family:var(--mono)">// 微信 / 电话见简历内附</p>
+    </div>
+  </section>
+
+  <!-- ================= 页脚 ================= -->
+  <footer class="site">
+    <div class="wrap">
+      <span>© 2026 高一帆 · gaoyifan@portfolio</span>
+      <span>Built with plain HTML/CSS/JS — 无框架 · 离线可用</span>
+    </div>
+  </footer>
+
+  <script src="assets/portfolio.js"></script>
+</body>
+</html>
